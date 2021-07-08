@@ -97,6 +97,7 @@
                         type="checkbox"
                         id="flexCheckDefault"
                         v-model="temp.is_paid"
+                        @click="temp.paid_date = new Date().getTime() / 1000"
                     />
                     <label class="form-check-label" for="flexCheckDefault">
                         <span v-if="temp.is_paid">已付款</span>

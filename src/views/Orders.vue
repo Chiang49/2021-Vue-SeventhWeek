@@ -89,7 +89,6 @@ export default {
     Pagination,
     OrderModal
   },
-  inject: ['dateFormat'],
   data () {
     return {
       orders: [],
