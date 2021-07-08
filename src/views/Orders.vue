@@ -19,7 +19,7 @@
           </tr>
           <template v-else>
             <tr v-for="order in orders" :key="order.id">
-              <td>{{ `${dateFormat(order.create_at)}` }}</td>
+              <td>{{ order.create_at }}</td>
               <td><span>{{ order.user.email }}</span></td>
               <td>
                 <ul class="list-unstyled">

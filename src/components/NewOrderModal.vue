@@ -97,7 +97,6 @@
                         type="checkbox"
                         id="flexCheckDefault"
                         v-model="temp.is_paid"
-                        @click="temp.paid_date = new Date().getTime() / 1000"
                     />
                     <label class="form-check-label" for="flexCheckDefault">
                         <span v-if="temp.is_paid">已付款</span>
@@ -147,10 +146,8 @@ export default {
   watch: {
     order () {
       this.temp = this.order
-      this.temp.create_at = this.dateFormat(this.temp.create_at)
       this.user = this.order.user
       this.products = this.order.products
-      console.log(this.temp)
     }
   },
   methods: {
@@ -177,14 +174,6 @@ export default {
       }).catch((err) => {
         console.log(err)
       })
-    },
-    // 時間格式轉換
-    dateFormat (data) {
-      // 將時間格式改為 YYYY-MM-DD
-      const dateAndTime = new Date(data * 1000).toISOString().substr(0, 10)
-      return dateAndTime
-      // toISOString() 轉換時間格式為 YYYY-MM-DD
-      // substr(a, b) 取要顯示的字數，參數 a 為起始位子、參數 b 為要顯示的字數
     }
   },
   mounted () {
